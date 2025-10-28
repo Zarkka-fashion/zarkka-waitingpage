@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Zarkka — Coming Soon</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,600&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-1: #0f1724;
+    --bg-2: #0b1b2b;
+    --muted: #b8c0cc;
+    --accent-blue: #0b76ff;
+    --gold: #ffd07a;
+    --glass: rgba(255,255,255,0.02);
+    --card-radius: 18px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:
+      radial-gradient(800px 400px at 10% 15%, rgba(255,208,122,0.05), transparent 10%),
+      radial-gradient(600px 300px at 90% 85%, rgba(11,118,255,0.03), transparent 8%),
+      linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 100%);
+    color: #eef2f6;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:28px;
+  }
+
+  /* HERO CARD */
+  .hero{
+    width:100%;
+    max-width:1150px;
+    padding:36px;
+    border-radius:var(--card-radius);
+    position:relative;
+    overflow:hidden;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    box-shadow: 0 36px 80px rgba(3,8,15,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+    display:grid;
+    grid-template-columns: 1fr 380px;
+    gap:32px;
+    align-items:center;
+  }
+
+  /* RESPONSIVE GRID TUNING */
+  @media (max-width:1080px){
+    .hero{ max-width:980px; grid-template-columns: 1fr 340px; gap:28px; padding:32px; }
+    h1{ font-size:44px; }
+  }
+  @media (max-width:880px){
+    .hero{ grid-template-columns: 1fr; padding:28px; gap:22px; ; }
+    .logo-box { order: -1; justify-self: center; margin-bottom: 18px; }
+  }
+
+  /* LEFT AREA */
+  .left{ padding-right:8px; padding-top: 80px; }
+  .kicker{
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--accent-blue);
+    font-size:12px;
+    margin-bottom:12px;
+    opacity:0.98;
+  }
+
+  h1{
+    font-family: "Playfair Display", serif;
+    font-size:56px;
+    line-height:0.95;
+    margin:0 0 12px 0;
+    color: #fff;
+    letter-spacing:-1px;
+    text-shadow: 0 8px 30px rgba(3,8,15,0.6);
+  }
+  @media (max-width:1080px){ h1{font-size:48px} }
+  @media (max-width:600px){ h1{font-size:34px; line-height:1.02;} }
+
+  .subtitle{
+    color:var(--muted);
+    font-size:18px;
+    line-height:1.6;
+    max-width:58ch;
+    margin-bottom:16px;
+    margin-top: 31px;
+  }
+  @media (max-width:600px){ .subtitle{ font-size:15px } }
+
+  /* stitch (animated dashed) */
+  .stitch-wrap{ margin-top:1px; display:inline-block; position:relative; padding-left:6px; }
+  .stitch-line{
+    height:1px;
+    width:240px;
+    background:linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+    mask-image: repeating-linear-gradient(90deg, #000 0 6px, transparent 6px 12px);
+    -webkit-mask-image: repeating-linear-gradient(90deg, #000 0 6px, transparent 6px 12px);
+    animation: stitchMove 2.6s linear infinite;
+    display:inline-block;
+    vertical-align:middle;
+    border-radius:4px;
+  }
+  @keyframes stitchMove { from { transform: translateX(0) } to { transform: translateX(-12px) } }
+
+  .brandline{ margin-top:18px; color:rgba(255,255,255,0.6); font-size:12px; letter-spacing:0.6px; }
+
+  /* LOGO AREA */
+  .logo-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (max-width: 880px) {
+    .logo-box {
+        order: -1;
+        justify-self: center;
+        margin-bottom: -50px;
+    }
+}
+
+  .logo-box img {
+    width: 220px;
+    height: auto;
+    object-fit: contain;
+    opacity: 0.95;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .logo-box img:hover {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+
+  /* fabric swatch background */
+  .fabric{ position:absolute; right:-130px; top:-80px; width:520px; height:520px; transform: rotate(-18deg); background: conic-gradient(from 120deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00) 20%), linear-gradient(135deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); filter: blur(32px); opacity:0.6; pointer-events:none; }
+
+  /* reduce motion preference */
+  @media (prefers-reduced-motion: reduce){
+    .stitch-line { animation: none; }
+  }
+
+  /* mobile fine-tuning */
+  @media (max-width:520px){
+    .hero{ padding:22px; gap:18px }
+    .logo-box img{ width:160px }
+    h1{ font-size:30px }
+    .stitch-line{ width:160px }
+  }
+</style>
+</head>
+<body>
+  <div class="hero" role="main" aria-labelledby="zarkkaTitle">
+    <div class="fabric" aria-hidden="true"></div>
+
+    <div class="left">
+      <div class="kicker">Zarkka your online tailor</div>
+
+      <h1 id="zarkkaTitle">We’re stitching something<br>special for Bangalore.</h1>
+
+      <div class="subtitle">
+        Our online tailoring service launches in a few weeks.<br/> From pickup to delivery, we make tailoring hassle-free across Bangalore.
+      </div>
+
+      <div class="stitch-wrap" aria-hidden="true">
+        <div class="stitch-line"></div>
+      </div>
+
+      <div class="brandline">Handmade. Tailored. Delivered.</div>
+    </div>
+
+    <!-- Logo on the right side -->
+    <div class="logo-box">
+      <img src="../assets/logo.png" alt="Zarkka Logo">
+    </div>
+  </div>
+</body>
+</html>
+
+
+
