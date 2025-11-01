@@ -151,6 +151,33 @@
     h1{ font-size:30px }
     .stitch-line{ width:160px }
   }
+.cta-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--accent-blue), #2196ff);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 25px;
+  margin-top: 10px;
+  border-radius: 10px;
+  letter-spacing: 0.6px;
+  font-size: 16px;
+  box-shadow: 0 4px 14px rgba(11,118,255,0.25);
+  transition: all 0.25s ease;
+}
+
+.cta-btn:hover {
+  background: linear-gradient(90deg, #2196ff, var(--accent-blue));
+  box-shadow: 0 6px 22px rgba(11,118,255,0.35);
+  transform: translateY(-2px);
+}
+
+.cta-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(11,118,255,0.2);
+}
+
+
 </style>
 </head>
 <body>
@@ -176,6 +203,12 @@
     <!-- Logo on the right side -->
     <div class="logo-box">
       <img src="assets/logo.png" alt="Zarkka Logo">
+    </div>
+    <div class="early-access">
+    <p>Join our early access community to get <span>30% discount</span>.</p>
+    <a href="https://forms.gle/GgDH9jjkQcrjJK6z6" target="_blank" rel="noopener" class="cta-btn">
+      Join Now
+    </a>
     </div>
   </div>
 </body>
